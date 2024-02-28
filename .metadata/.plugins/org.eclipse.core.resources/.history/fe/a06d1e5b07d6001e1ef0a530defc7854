@@ -1,0 +1,106 @@
+package com.onemore.msnaves;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+
+import com.onemore.msnaves.naves.db.Nave;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
+public class NavesApiIntegrationTest {
+
+    @LocalServerPort
+    private int port;
+
+    @Autowired
+    private TestRestTemplate restTemplate;
+    
+    @BeforeEach
+    public void setup() {
+        // Configurar RestTemplate con el convertidor de mensajes Jackson
+        restTemplate.getRestTemplate().getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+    }
+
+    @Test
+    public void testAllEndpoints() {
+    	System.out.println("El servidor está ejecutándose en el puerto: " + port);
+    }
+    
+    @Test
+    public void testGetAllNaves() {
+    	ResponseEntity<List<Nave>> response = restTemplate.exchange(
+    	        "http://localhost:" + port + "/naves",
+    	        HttpMethod.GET,
+    	        null,
+    	        new ParameterizedTypeReference<List<Nave>>() {});
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        // Asegúrate de realizar más aserciones según lo esperado para este endpoint
+    }
+
+    @Test
+    public void testGetNaveById() {
+        ResponseEntity<Nave> response = restTemplate.getForEntity("http://localhost:" + port + "/naves/1", Nave.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        // Asegúrate de realizar más aserciones según lo esperado para este endpoint
+    }
+
+    @Test
+    public void testCreateNave() {
+        Nave nave = new Nave();
+        // Define los atributos de la nave que quieres crear
+        ResponseEntity<Nave> response = restTemplate.postForEntity("http://localhost:" + port + "/naves", nave, Nave.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+        // Asegúrate de realizar más aserciones según lo esperado para este endpoint
+    }
+
+    @Test
+    public void testUpdateNave() {
+        Nave nave = new Nave();
+        // Define los atributos de la nave que quieres actualizar
+        restTemplate.put("http://localhost:" + port + "/naves/1", nave);
+        // Asegúrate de realizar más aserciones según lo esperado para este endpoint
+    }
+
+    @Test
+    public void testDeleteNave() {
+        restTemplate.delete("http://localhost:" + port + "/naves/1");
+        // Asegúrate de realizar más aserciones según lo esperado para este endpoint
+    }
+
+    @Test
+    public void testGetNaveByNombre() {
+        ResponseEntity<Nave[]> response = restTemplate.getForEntity("http://localhost:" + port + "/naves/nombre/nombreEjemplo", Nave[].class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        // Asegúrate de realizar más aserciones según lo esperado para este endpoint
+    }
+
+    @Test
+    public void testTestEndpoint() {
+        ResponseEntity<Void> response = restTemplate.getForEntity("http://localhost:" + port + "/naves/test", Void.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        // Asegúrate de realizar más aserciones según lo esperado para este endpoint
+    }
+
+    @Test
+    public void testLoginEndpoint() {
+        ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:" + port + "/naves/login", String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        // Asegúrate de realizar más aserciones según lo esperado para este endpoint
+    }
+    
+}
+

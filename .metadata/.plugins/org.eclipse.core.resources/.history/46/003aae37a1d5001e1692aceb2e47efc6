@@ -1,0 +1,101 @@
+package com.onemore.msnaves.naves.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.mapstruct.factory.Mappers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.onemore.msnaves.db.naves.Usuario;
+import com.onemore.msnaves.db.naves.UsuarioDto;
+import com.onemore.msnaves.db.naves.UsuariosMapper;
+import com.onemore.msnaves.naves.service.UsuariosService;
+
+@RestController
+@RequestMapping("/usuarios")
+public class UsuariosApi {
+
+    @Autowired
+    private UsuariosService usuariosService;
+
+    /*
+     * CRUD
+     */
+    
+    @GetMapping
+    public ResponseEntity<List<Usuario>> getAllUsuarios() {
+        List<Usuario> usuarios = usuariosService.getAll();
+        return new ResponseEntity<>(usuarios, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> getUsuarioById(@PathVariable("id") Integer id) {
+        Optional<Usuario> usuario = usuariosService.getById(id);
+        if (usuario.isPresent()) {
+            return new ResponseEntity<>(usuario.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario) {
+        Usuario createdUsuario = usuariosService.create(usuario);
+        return new ResponseEntity<>(createdUsuario, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> updateUsuario(@PathVariable("id") Integer id, @RequestBody UsuarioDto usuarioDto) {
+    	UsuariosMapper usuariosMapper = Mappers.getMapper(UsuariosMapper.class);
+    	Usuario usuario = usuariosMapper.toEntity(usuarioDto);
+        Usuario updatedUsuario = usuariosService.update(id, usuario);
+        return new ResponseEntity<>(updatedUsuario, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUsuario(@PathVariable("id") Integer id) {
+        usuariosService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    
+    /*
+     * 
+     */
+    
+    @GetMapping("/nick/{nick}")
+    public ResponseEntity<List<Usuario>> getUsuarioByNick(@PathVariable("nick") String nick) {
+        List<Usuario> usuarios = usuariosService.findByNick(nick);
+        if (!usuarios.isEmpty()) {
+            return new ResponseEntity<>(usuarios, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    @Autowired
+    private ConfigurableApplicationContext context;
+    
+    @PostMapping("/stop")
+    public String shutdownApplication() {
+        SpringApplication.exit(context, () -> 0);
+        return "Application stopped";
+    }
+    
+    @GetMapping("/test")
+    public HttpStatus test() {
+        return HttpStatus.OK;
+    }
+    
+}

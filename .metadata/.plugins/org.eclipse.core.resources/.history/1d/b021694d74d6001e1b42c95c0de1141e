@@ -1,0 +1,17 @@
+package com.onemore.msinfo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MsInfoApplication {
+
+    public static void main(String[] args) throws Exception {
+    	SpringApplication.run(MsInfoApplication.class, args);
+    	
+    	ColasService colasService = new ColasService();
+    	colasService.conectarColaInfo();
+        
+    }
+
+}

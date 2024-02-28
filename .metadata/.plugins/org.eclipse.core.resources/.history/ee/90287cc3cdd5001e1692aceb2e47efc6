@@ -1,0 +1,5 @@
+package com.onemore.msnaves.generic;
+
+public class PaginationRequest {
+
+}

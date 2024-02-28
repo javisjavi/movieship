@@ -1,0 +1,13 @@
+package com.onemore.msnaves.naves.service;
+
+import java.util.List;
+
+import com.onemore.msnaves.db.naves.Nave;
+
+public interface INavesService {
+
+//	Nave update(Integer id, Nave entity);
+	
+	List<Nave> findByNombre(String nick);
+	
+}

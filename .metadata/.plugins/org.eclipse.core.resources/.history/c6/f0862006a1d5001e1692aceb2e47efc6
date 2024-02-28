@@ -1,0 +1,13 @@
+package com.onemore.msusuarios.usuarios.service;
+
+import java.util.List;
+
+import com.onemore.msusuarios.db.usuarios.Usuario;
+
+public interface IUsuariosService {
+
+//	Usuario update(Integer id, Usuario entity);
+	
+	List<Usuario> findByNick(String nick);
+	
+}

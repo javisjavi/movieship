@@ -1,0 +1,1084 @@
+2024-02-02 20:37:37.753 CET [14788] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-02 20:37:37.754 CET [14788] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-02 20:37:37.803 CET [13820] LOG:  database system was shut down at 2024-02-02 20:37:31 CET
+2024-02-02 20:37:37.865 CET [14788] LOG:  database system is ready to accept connections
+2024-02-02 20:38:52.304 CET [4736] LOG:  invalid length of startup packet
+2024-02-02 20:38:53.423 CET [6024] LOG:  invalid length of startup packet
+2024-02-02 20:45:56.027 CET [14788] LOG:  received fast shutdown request
+2024-02-02 20:45:56.031 CET [14788] LOG:  aborting any active transactions
+2024-02-02 20:45:56.058 CET [14788] LOG:  worker process: logical replication launcher (PID 6956) exited with exit code 1
+2024-02-02 20:45:56.058 CET [2160] LOG:  shutting down
+2024-02-02 20:45:56.122 CET [14788] LOG:  database system is shut down
+2024-02-02 20:47:25.314 CET [2068] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-02 20:47:25.314 CET [2068] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-02 20:47:25.377 CET [7400] LOG:  database system was shut down at 2024-02-02 20:45:56 CET
+2024-02-02 20:47:25.441 CET [2068] LOG:  database system is ready to accept connections
+2024-02-02 20:57:21.949 CET [2068] LOG:  received fast shutdown request
+2024-02-02 20:57:21.953 CET [2068] LOG:  aborting any active transactions
+2024-02-02 20:57:21.953 CET [10612] FATAL:  terminating connection due to administrator command
+2024-02-02 20:57:21.967 CET [2068] LOG:  worker process: logical replication launcher (PID 4408) exited with exit code 1
+2024-02-02 20:57:21.968 CET [13792] LOG:  shutting down
+2024-02-02 20:57:22.070 CET [2068] LOG:  database system is shut down
+2024-02-02 20:57:53.011 CET [2544] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-02 20:57:53.011 CET [2544] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-02 20:57:53.055 CET [7072] LOG:  database system was shut down at 2024-02-02 20:57:22 CET
+2024-02-02 20:57:53.088 CET [2544] LOG:  database system is ready to accept connections
+2024-02-03 12:49:16.192 CET [15544] ERROR:  identity column type must be smallint, integer, or bigint
+2024-02-03 12:49:16.192 CET [15544] STATEMENT:  ALTER TABLE IF EXISTS public.usuarios
+	    ADD COLUMN IF NOT EXISTS id numeric NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 );
+	
+	
+2024-02-03 13:12:47.071 CET [8912] ERROR:  cannot insert into column "id"
+2024-02-03 13:12:47.071 CET [8912] DETAIL:  Column "id" is an identity column defined as GENERATED ALWAYS.
+2024-02-03 13:12:47.071 CET [8912] HINT:  Use OVERRIDING SYSTEM VALUE to override.
+2024-02-03 13:12:47.071 CET [8912] STATEMENT:  select * from usuarios;
+	
+	insert into usuarios values (1);
+2024-02-03 13:13:51.206 CET [8912] ERROR:  invalid input syntax for integer: "Javier" at character 55
+2024-02-03 13:13:51.206 CET [8912] STATEMENT:  select * from usuarios;
+	
+	insert into usuarios values ('Javier');
+2024-02-03 13:14:04.362 CET [8912] ERROR:  cannot insert into column "id"
+2024-02-03 13:14:04.362 CET [8912] DETAIL:  Column "id" is an identity column defined as GENERATED ALWAYS.
+2024-02-03 13:14:04.362 CET [8912] HINT:  Use OVERRIDING SYSTEM VALUE to override.
+2024-02-03 13:14:04.362 CET [8912] STATEMENT:  select * from usuarios;
+	
+	insert into usuarios values (1, 'Javier');
+2024-02-03 13:14:19.492 CET [8912] ERROR:  syntax error at or near "'nombre'" at character 48
+2024-02-03 13:14:19.492 CET [8912] STATEMENT:  select * from usuarios;
+	
+	insert into usuarios ('nombre') values ('Javier');
+2024-02-03 13:18:46.353 CET [14780] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-03 13:32:00.496 CET [2544] LOG:  server process (PID 8912) was terminated by exception 0xC000013A
+2024-02-03 13:32:00.496 CET [2544] DETAIL:  Failed process was running: SELECT oid, pg_catalog.format_type(oid, NULL) AS typname FROM pg_catalog.pg_type WHERE oid = ANY($1) ORDER BY oid;
+2024-02-03 13:32:00.496 CET [2544] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-03 13:32:00.496 CET [2544] LOG:  terminating any other active server processes
+2024-02-03 13:32:00.508 CET [11744] WARNING:  terminating connection because of crash of another server process
+2024-02-03 13:32:00.508 CET [11744] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-03 13:32:00.508 CET [11744] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-03 13:32:00.511 CET [12224] WARNING:  terminating connection because of crash of another server process
+2024-02-03 13:32:00.511 CET [12224] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-03 13:32:00.511 CET [12224] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-03 13:32:00.540 CET [2544] LOG:  statistics collector process (PID 15356) was terminated by exception 0xC000013A
+2024-02-03 13:32:00.540 CET [2544] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-03 13:32:00.542 CET [2544] LOG:  all server processes terminated; reinitializing
+2024-02-03 13:32:00.593 CET [11384] LOG:  database system was interrupted; last known up at 2024-02-03 13:17:58 CET
+2024-02-03 13:32:03.036 CET [11384] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-03 13:32:03.072 CET [11384] LOG:  redo starts at 0/1671C88
+2024-02-03 13:32:03.073 CET [11384] LOG:  invalid record length at 0/1671D68: wanted 24, got 0
+2024-02-03 13:32:03.073 CET [11384] LOG:  redo done at 0/1671D30
+2024-02-03 13:32:03.259 CET [2544] LOG:  database system is ready to accept connections
+2024-02-03 13:32:03.620 CET [2544] LOG:  worker process: logical replication launcher (PID 17752) was terminated by exception 0xC000013A
+2024-02-03 13:32:03.620 CET [2544] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-03 13:32:03.620 CET [2544] LOG:  terminating any other active server processes
+2024-02-03 13:32:03.625 CET [17724] WARNING:  terminating connection because of crash of another server process
+2024-02-03 13:32:03.625 CET [17724] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-03 13:32:03.625 CET [17724] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-03 13:32:03.633 CET [2544] LOG:  statistics collector process (PID 17744) was terminated by exception 0xC000013A
+2024-02-03 13:32:03.633 CET [2544] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-03 13:32:03.648 CET [2544] LOG:  all server processes terminated; reinitializing
+2024-02-03 13:32:03.712 CET [17896] LOG:  database system was interrupted; last known up at 2024-02-03 13:32:03 CET
+2024-02-03 13:32:04.109 CET [2544] LOG:  startup process (PID 17896) was terminated by exception 0xC000013A
+2024-02-03 13:32:04.109 CET [2544] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+^C2024-02-03 13:32:31.285 CET [16556] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-03 13:32:31.285 CET [16556] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-03 13:32:31.338 CET [16820] LOG:  database system was interrupted; last known up at 2024-02-03 13:32:03 CET
+2024-02-03 13:32:31.444 CET [16600] FATAL:  the database system is starting up
+2024-02-03 13:32:31.474 CET [17612] FATAL:  the database system is starting up
+2024-02-03 13:32:31.512 CET [16960] FATAL:  the database system is starting up
+2024-02-03 13:32:31.549 CET [4148] FATAL:  the database system is starting up
+2024-02-03 13:32:31.581 CET [5688] FATAL:  the database system is starting up
+2024-02-03 13:32:31.608 CET [13156] FATAL:  the database system is starting up
+2024-02-03 13:32:31.646 CET [16456] FATAL:  the database system is starting up
+2024-02-03 13:32:31.678 CET [11276] FATAL:  the database system is starting up
+2024-02-03 13:32:31.935 CET [16820] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-03 13:32:31.939 CET [16820] LOG:  invalid record length at 0/1671DD8: wanted 24, got 0
+2024-02-03 13:32:31.939 CET [16820] LOG:  redo is not required
+2024-02-03 13:32:31.997 CET [16556] LOG:  database system is ready to accept connections
+2024-02-08 17:17:20.554 CET [12452] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.966 CET [2236] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.967 CET [3652] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.967 CET [7548] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.967 CET [13184] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.967 CET [15888] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.967 CET [7652] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.967 CET [21452] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.968 CET [5564] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.968 CET [10040] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:34:45.968 CET [21484] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:39:15.633 CET [17096] ERROR:  syntax error at or near "//" at character 221
+2024-02-08 19:39:15.633 CET [17096] STATEMENT:  select * from usuarios;
+	
+	insert into usuarios (nombre) values ('Javier');
+	insert into usuarios (nombre) values ('Pedro');
+	insert into usuarios (nombre) values ('Jaime');
+	insert into usuarios (nombre) values ('Vanesa');
+	
+	//delete from usuarios;
+	
+	select * from usuarios;
+2024-02-08 19:44:54.128 CET [14748] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.128 CET [7700] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.129 CET [20832] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.129 CET [20472] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.129 CET [3208] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.129 CET [17052] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.129 CET [21188] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.129 CET [16780] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.130 CET [16712] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:44:54.130 CET [22524] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.678 CET [4368] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.678 CET [16520] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.679 CET [2212] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.679 CET [19920] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.679 CET [11032] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.680 CET [21000] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.680 CET [13316] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.681 CET [20056] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.681 CET [13480] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 19:52:23.680 CET [2276] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.269 CET [21320] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.269 CET [6740] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.269 CET [11584] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.269 CET [16012] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.269 CET [4208] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.269 CET [788] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.270 CET [13940] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.271 CET [12524] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.271 CET [21220] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:01:36.271 CET [15752] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.615 CET [15940] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.615 CET [15088] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.616 CET [22432] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.616 CET [7268] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.616 CET [20912] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.617 CET [21124] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.617 CET [17176] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.618 CET [17404] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.618 CET [20548] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:20:18.618 CET [21680] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.445 CET [15408] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.446 CET [16016] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.446 CET [10224] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.449 CET [18304] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.450 CET [15080] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.452 CET [22328] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.452 CET [22364] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.455 CET [3216] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.456 CET [2284] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:38:25.457 CET [21576] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.948 CET [2564] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.948 CET [12124] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.948 CET [14896] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.948 CET [5700] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.948 CET [15404] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.949 CET [14984] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.949 CET [19716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.949 CET [7848] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.950 CET [2868] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 22:48:36.950 CET [2388] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.690 CET [20632] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.690 CET [5168] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.690 CET [21764] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.691 CET [21828] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.691 CET [8524] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.691 CET [23304] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.692 CET [8388] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.692 CET [17352] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.692 CET [15480] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-08 23:03:12.692 CET [18232] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:01:16.685 CET [18712] ERROR:  cannot insert into column "id"
+2024-02-09 00:01:16.685 CET [18712] DETAIL:  Column "id" is an identity column defined as GENERATED ALWAYS.
+2024-02-09 00:01:16.685 CET [18712] HINT:  Use OVERRIDING SYSTEM VALUE to override.
+2024-02-09 00:01:16.685 CET [18712] STATEMENT:  insert into usuarios (nick, nombre, id) values ($1, $2, $3)
+2024-02-09 00:20:04.431 CET [21996] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.431 CET [20056] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.431 CET [1716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.431 CET [23420] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.432 CET [13208] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.432 CET [16224] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.432 CET [17008] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.433 CET [11464] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.433 CET [13148] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:20:04.433 CET [9084] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.466 CET [16344] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.466 CET [11732] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.466 CET [12732] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.467 CET [3252] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.467 CET [22924] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.467 CET [13036] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.467 CET [21764] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.467 CET [16260] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.467 CET [8972] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 00:35:56.468 CET [4012] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 01:00:30.878 CET [17096] ERROR:  INSERT has more expressions than target columns at character 63
+2024-02-09 01:00:30.878 CET [17096] STATEMENT:  insert into usuarios (nombre, nick) values ('Javier', 'javi', '2024-02-08 12:30:00');
+	insert into usuarios (nombre, nick) values ('Pedro', 'peter', '2024-02-07 12:30:00');
+	insert into usuarios (nombre, nick) values ('Jaime', 'jaime', '2024-02-06 10:30:00');
+	insert into usuarios (nombre, nick) values ('Vanesa', 'la vane', '2024-02-05 09:30:00');
+2024-02-09 01:00:42.152 CET [17096] ERROR:  INSERT has more expressions than target columns at character 63
+2024-02-09 01:00:42.152 CET [17096] STATEMENT:  insert into usuarios (nombre, nick) values ('Javier', 'javi', '2024-02-08 12:30:00');
+2024-02-09 01:01:09.088 CET [17096] ERROR:  INSERT has more expressions than target columns at character 63
+2024-02-09 01:01:09.088 CET [17096] STATEMENT:  insert into usuarios (nombre, nick) values ('Javier', 'javi', CURRENT_TIMESTAMP);
+2024-02-09 01:01:32.208 CET [17096] ERROR:  column "fechaalta" of relation "usuarios" does not exist at character 37
+2024-02-09 01:01:32.208 CET [17096] STATEMENT:  insert into usuarios (nombre, nick, fechaAlta) values ('Javier', 'javi', '2024-02-08 12:30:00');
+	insert into usuarios (nombre, nick, fechaAlta) values ('Pedro', 'peter', '2024-02-07 12:30:00');
+	insert into usuarios (nombre, nick, fechaAlta) values ('Jaime', 'jaime', '2024-02-06 10:30:00');
+	insert into usuarios (nombre, nick, fechaAlta) values ('Vanesa', 'la vane', '2024-02-05 09:30:00');
+	
+2024-02-09 01:01:54.205 CET [17096] ERROR:  column "fechaalta" of relation "usuarios" does not exist at character 37
+2024-02-09 01:01:54.205 CET [17096] STATEMENT:  insert into usuarios (nombre, nick, fechaAlta) values ('Javier', 'javi', '2024-02-08 12:30:00');
+	
+2024-02-09 01:02:08.573 CET [17096] ERROR:  syntax error at or near "12" at character 85
+2024-02-09 01:02:08.573 CET [17096] STATEMENT:  insert into usuarios (nombre, nick, fechaAlta) values ('Javier', 'javi', 2024-02-08 12:30:00);
+2024-02-09 01:02:32.702 CET [17096] ERROR:  column "fechaalta" of relation "usuarios" does not exist at character 37
+2024-02-09 01:02:32.702 CET [17096] STATEMENT:  insert into usuarios (nombre, nick, fechaAlta) values ('Javier', 'javi', CURRENT_TIMESTAMP);
+2024-02-09 01:04:05.739 CET [17096] ERROR:  column "fechaalta" of relation "usuarios" does not exist at character 37
+2024-02-09 01:04:05.739 CET [17096] STATEMENT:  insert into usuarios (nombre, nick, fechaAlta) values ('Javier', 'javi', CURRENT_TIMESTAMP);
+2024-02-09 01:05:08.864 CET [17096] ERROR:  column "fechaalta" of relation "usuarios" does not exist at character 23
+2024-02-09 01:05:08.864 CET [17096] STATEMENT:  INSERT INTO usuarios (fechaAlta) VALUES (CURRENT_TIMESTAMP);
+2024-02-09 01:05:47.580 CET [17096] ERROR:  column "fechaalta" of relation "usuarios" does not exist at character 37
+2024-02-09 01:05:47.580 CET [17096] STATEMENT:  insert into usuarios (nombre, nick, fechaAlta) values ('Javier', 'javi', CURRENT_TIMESTAMP);
+2024-02-09 06:52:29.487 CET [2012] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.487 CET [23288] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.487 CET [7268] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.488 CET [21604] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.488 CET [8972] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.488 CET [21724] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.489 CET [10464] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.489 CET [18260] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.489 CET [15236] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-09 06:52:29.490 CET [12452] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.797 CET [13516] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.798 CET [4360] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.798 CET [16052] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.798 CET [12448] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.798 CET [10856] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.798 CET [17648] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.798 CET [8112] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.799 CET [5352] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.799 CET [10284] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 21:50:16.800 CET [13280] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.295 CET [16788] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.295 CET [5224] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.296 CET [4108] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.296 CET [8168] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.298 CET [9200] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.298 CET [21128] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.300 CET [19796] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.300 CET [12920] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.301 CET [13028] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:36:55.302 CET [10872] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.397 CET [19288] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.397 CET [10376] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.397 CET [14780] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.397 CET [14228] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.397 CET [14644] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.398 CET [15428] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.399 CET [10304] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.399 CET [12968] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.399 CET [776] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-10 22:45:22.400 CET [21908] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-12 16:39:33.019 CET [17096] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-12 16:39:33.019 CET [9980] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-12 16:39:33.019 CET [23148] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-12 16:39:33.047 CET [21756] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-12 16:39:33.047 CET [21756] LOG:  incomplete startup packet
+2024-02-15 01:24:21.285 CET [6700] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.286 CET [1652] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.286 CET [15668] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.286 CET [17440] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.286 CET [24060] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.286 CET [12896] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.287 CET [21780] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.287 CET [8756] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.287 CET [22728] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:24:21.288 CET [12552] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.315 CET [16488] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.315 CET [18452] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.315 CET [22900] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.315 CET [9952] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.316 CET [18404] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.316 CET [13452] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.317 CET [1556] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.317 CET [10448] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.317 CET [6816] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 01:37:09.317 CET [18700] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.563 CET [4392] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.566 CET [2636] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.566 CET [17704] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.566 CET [5492] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.566 CET [19392] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.567 CET [21828] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.567 CET [15900] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.568 CET [8744] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.568 CET [14716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 03:27:02.568 CET [5568] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-15 21:12:22.756 CET [20092] LOG:  invalid length of startup packet
+2024-02-15 21:12:23.884 CET [17400] LOG:  invalid length of startup packet
+2024-02-15 21:12:28.960 CET [452] LOG:  invalid length of startup packet
+2024-02-15 21:12:59.010 CET [26460] LOG:  invalid length of startup packet
+2024-02-15 21:13:59.065 CET [24368] LOG:  invalid length of startup packet
+2024-02-15 21:16:58.682 CET [16556] LOG:  received fast shutdown request
+2024-02-15 21:16:58.686 CET [16556] LOG:  aborting any active transactions
+2024-02-15 21:16:58.687 CET [7104] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.687 CET [22396] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.687 CET [20884] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.687 CET [12096] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.687 CET [23488] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.688 CET [11576] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.688 CET [19720] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.688 CET [9136] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.688 CET [17956] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.689 CET [20576] FATAL:  terminating connection due to administrator command
+2024-02-15 21:16:58.715 CET [16556] LOG:  worker process: logical replication launcher (PID 1156) exited with exit code 1
+2024-02-15 21:16:58.715 CET [18344] LOG:  shutting down
+2024-02-15 21:16:58.778 CET [16556] LOG:  database system is shut down
+2024-02-16 02:16:46.500 CET [13612] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-16 02:16:46.500 CET [13612] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-16 02:16:46.548 CET [25980] LOG:  database system was shut down at 2024-02-15 21:16:58 CET
+2024-02-16 02:16:46.597 CET [13612] LOG:  database system is ready to accept connections
+2024-02-16 02:21:14.423 CET [13612] LOG:  server process (PID 18076) was terminated by exception 0xC000013A
+2024-02-16 02:21:14.423 CET [13612] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-16 02:21:14.423 CET [13612] LOG:  terminating any other active server processes
+2024-02-16 02:21:14.424 CET [9596] WARNING:  terminating connection because of crash of another server process
+2024-02-16 02:21:14.424 CET [9596] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 02:21:14.424 CET [9596] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 02:21:14.439 CET [13612] LOG:  all server processes terminated; reinitializing
+2024-02-16 02:21:14.469 CET [22564] LOG:  database system was interrupted; last known up at 2024-02-16 02:16:46 CET
+2024-02-16 02:21:14.951 CET [22564] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-16 02:21:14.955 CET [22564] LOG:  redo starts at 0/16E40E8
+2024-02-16 02:21:14.956 CET [22564] LOG:  invalid record length at 0/16E5DE0: wanted 24, got 0
+2024-02-16 02:21:14.956 CET [22564] LOG:  redo done at 0/16E5DA8
+2024-02-16 02:21:15.013 CET [13612] LOG:  database system is ready to accept connections
+2024-02-16 02:21:19.948 CET [22236] ERROR:  canceling statement due to user request
+2024-02-16 02:21:19.948 CET [16728] ERROR:  canceling statement due to user request
+2024-02-16 02:21:19.949 CET [13612] LOG:  received fast shutdown request
+2024-02-16 02:21:19.953 CET [13612] LOG:  aborting any active transactions
+2024-02-16 02:21:19.968 CET [13612] LOG:  worker process: logical replication launcher (PID 22236) exited with exit code 1
+2024-02-16 02:21:19.999 CET [24832] LOG:  shutting down
+2024-02-16 02:21:20.049 CET [13612] LOG:  database system is shut down
+2024-02-16 02:21:24.625 CET [19496] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-16 02:21:24.625 CET [19496] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-16 02:21:24.669 CET [19128] LOG:  database system was shut down at 2024-02-16 02:21:20 CET
+2024-02-16 02:21:24.713 CET [19496] LOG:  database system is ready to accept connections
+2024-02-16 02:21:26.522 CET [19496] LOG:  server process (PID 13448) was terminated by exception 0xC000013A
+2024-02-16 02:21:26.522 CET [19496] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-16 02:21:26.522 CET [19496] LOG:  terminating any other active server processes
+2024-02-16 02:21:26.523 CET [24228] WARNING:  terminating connection because of crash of another server process
+2024-02-16 02:21:26.523 CET [24228] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 02:21:26.523 CET [24228] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 02:21:26.525 CET [19496] LOG:  statistics collector process (PID 18632) was terminated by exception 0xC000013A
+2024-02-16 02:21:26.525 CET [19496] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+^C2024-02-16 02:22:03.836 CET [16060] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-16 02:22:03.836 CET [16060] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-16 02:22:03.901 CET [3868] LOG:  database system was interrupted; last known up at 2024-02-16 02:21:24 CET
+2024-02-16 02:22:04.374 CET [3868] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-16 02:22:04.377 CET [3868] LOG:  invalid record length at 0/16E5EC0: wanted 24, got 0
+2024-02-16 02:22:04.377 CET [3868] LOG:  redo is not required
+2024-02-16 02:22:04.420 CET [16060] LOG:  database system is ready to accept connections
+2024-02-16 02:22:09.339 CET [16060] LOG:  server process (PID 16920) was terminated by exception 0xC000013A
+2024-02-16 02:22:09.339 CET [16060] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-16 02:22:09.339 CET [16060] LOG:  terminating any other active server processes
+2024-02-16 02:22:09.340 CET [20384] WARNING:  terminating connection because of crash of another server process
+2024-02-16 02:22:09.340 CET [20384] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 02:22:09.340 CET [20384] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 02:22:09.368 CET [16060] LOG:  statistics collector process (PID 14732) was terminated by exception 0xC000013A
+2024-02-16 02:22:09.368 CET [16060] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-16 02:22:09.368 CET [16060] LOG:  all server processes terminated; reinitializing
+2024-02-16 02:22:09.397 CET [14172] LOG:  database system was interrupted; last known up at 2024-02-16 02:22:04 CET
+2024-02-16 02:22:09.857 CET [14172] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-16 02:22:09.863 CET [14172] LOG:  invalid record length at 0/16E5F30: wanted 24, got 0
+2024-02-16 02:22:09.863 CET [14172] LOG:  redo is not required
+2024-02-16 02:22:09.909 CET [16060] LOG:  database system is ready to accept connections
+2024-02-16 02:22:10.859 CET [16060] LOG:  worker process: logical replication launcher (PID 20424) was terminated by exception 0xC000013A
+2024-02-16 02:22:10.859 CET [16060] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-16 02:22:10.859 CET [16060] LOG:  terminating any other active server processes
+2024-02-16 02:22:10.860 CET [27920] WARNING:  terminating connection because of crash of another server process
+2024-02-16 02:22:10.860 CET [27920] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 02:22:10.860 CET [27920] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 02:22:10.875 CET [16060] LOG:  statistics collector process (PID 11608) was terminated by exception 0xC000013A
+2024-02-16 02:22:10.875 CET [16060] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-16 02:22:10.875 CET [16060] LOG:  all server processes terminated; reinitializing
+2024-02-16 02:22:10.911 CET [14096] LOG:  database system was interrupted; last known up at 2024-02-16 02:22:09 CET
+2024-02-16 02:22:11.360 CET [14096] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-16 02:22:11.369 CET [14096] LOG:  invalid record length at 0/16E5FA0: wanted 24, got 0
+2024-02-16 02:22:11.369 CET [14096] LOG:  redo is not required
+2024-02-16 02:22:11.426 CET [16060] LOG:  database system is ready to accept connections
+2024-02-16 02:22:11.941 CET [12380] ERROR:  canceling statement due to user request
+2024-02-16 02:22:11.941 CET [17152] ERROR:  canceling statement due to user request
+2024-02-16 02:22:11.941 CET [16060] LOG:  received fast shutdown request
+2024-02-16 02:22:11.946 CET [16060] LOG:  aborting any active transactions
+2024-02-16 02:22:11.967 CET [16060] LOG:  worker process: logical replication launcher (PID 17152) exited with exit code 1
+2024-02-16 02:22:11.999 CET [21788] LOG:  shutting down
+2024-02-16 02:22:12.033 CET [16060] LOG:  database system is shut down
+2024-02-16 02:30:17.153 CET [7136] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-16 02:30:17.153 CET [7136] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-16 02:30:17.199 CET [12724] LOG:  database system was shut down at 2024-02-16 02:22:12 CET
+2024-02-16 02:30:17.249 CET [7136] LOG:  database system is ready to accept connections
+2024-02-16 03:24:43.707 CET [28632] ERROR:  cannot insert into column "id"
+2024-02-16 03:24:43.707 CET [28632] DETAIL:  Column "id" is an identity column defined as GENERATED ALWAYS.
+2024-02-16 03:24:43.707 CET [28632] HINT:  Use OVERRIDING SYSTEM VALUE to override.
+2024-02-16 03:24:43.707 CET [28632] STATEMENT:  INSERT INTO public.usuarios (id,nombre,nick,fechaalta)
+		VALUES ($1,$2,$3,$4)
+2024-02-16 03:26:51.459 CET [23828] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.459 CET [13000] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.459 CET [23436] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.459 CET [13284] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.459 CET [2284] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.461 CET [20960] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.461 CET [24624] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.462 CET [26080] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.462 CET [27604] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 03:26:51.463 CET [15804] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-16 04:10:28.616 CET [7136] LOG:  server process (PID 10372) was terminated by exception 0xC000013A
+2024-02-16 04:10:28.616 CET [7136] DETAIL:  Failed process was running: SET application_name = 'PostgreSQL JDBC Driver'
+2024-02-16 04:10:28.616 CET [7136] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-16 04:10:28.616 CET [7136] LOG:  terminating any other active server processes
+2024-02-16 04:10:28.627 CET [13504] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.627 CET [13504] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.627 CET [13504] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.627 CET [27296] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.627 CET [27296] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.627 CET [27296] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.627 CET [27672] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.627 CET [27672] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.627 CET [27672] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.627 CET [10080] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.627 CET [10080] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.627 CET [10080] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.628 CET [9812] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.628 CET [9812] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.628 CET [9812] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.628 CET [1820] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.628 CET [1820] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.628 CET [1820] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.628 CET [8980] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.628 CET [8980] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.628 CET [8980] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.628 CET [24760] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.628 CET [24760] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.628 CET [24760] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.628 CET [12940] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.628 CET [12940] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.628 CET [12940] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-16 04:10:28.629 CET [18888] WARNING:  terminating connection because of crash of another server process
+2024-02-16 04:10:28.629 CET [18888] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-16 04:10:28.629 CET [18888] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+^C2024-02-20 04:11:38.540 CET [26528] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-20 04:11:38.540 CET [26528] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-20 04:11:38.587 CET [12596] LOG:  database system was interrupted; last known up at 2024-02-16 03:50:17 CET
+2024-02-20 04:11:39.447 CET [12596] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-20 04:11:39.460 CET [12596] LOG:  redo starts at 0/16F9100
+2024-02-20 04:11:39.460 CET [12596] LOG:  invalid record length at 0/16F91E0: wanted 24, got 0
+2024-02-20 04:11:39.460 CET [12596] LOG:  redo done at 0/16F91A8
+2024-02-20 04:11:39.525 CET [26528] LOG:  database system is ready to accept connections
+2024-02-20 05:05:46.303 CET [13304] LOG:  invalid length of startup packet
+2024-02-20 05:05:47.367 CET [8536] LOG:  invalid length of startup packet
+2024-02-20 05:05:49.661 CET [21132] LOG:  invalid length of startup packet
+2024-02-20 05:05:54.709 CET [19424] LOG:  invalid length of startup packet
+2024-02-20 18:32:05.621 CET [26528] LOG:  server process (PID 19320) was terminated by exception 0xC000013A
+2024-02-20 18:32:05.621 CET [26528] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-20 18:32:05.621 CET [26528] LOG:  terminating any other active server processes
+2024-02-20 18:32:05.622 CET [12668] WARNING:  terminating connection because of crash of another server process
+2024-02-20 18:32:05.622 CET [12668] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-20 18:32:05.622 CET [12668] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-20 18:32:05.637 CET [26528] LOG:  statistics collector process (PID 12416) was terminated by exception 0xC000013A
+2024-02-20 18:32:05.637 CET [26528] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-20 18:32:05.638 CET [26528] LOG:  all server processes terminated; reinitializing
+2024-02-20 18:32:05.669 CET [20396] LOG:  database system was interrupted; last known up at 2024-02-20 04:11:39 CET
+2024-02-20 18:32:06.154 CET [20396] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-20 18:32:06.158 CET [20396] LOG:  redo starts at 0/16F9250
+2024-02-20 18:32:06.158 CET [20396] LOG:  invalid record length at 0/16F9288: wanted 24, got 0
+2024-02-20 18:32:06.158 CET [20396] LOG:  redo done at 0/16F9250
+2024-02-20 18:32:06.242 CET [26528] LOG:  database system is ready to accept connections
+2024-02-20 18:32:11.526 CET [15284] ERROR:  canceling statement due to user request
+2024-02-20 18:32:11.526 CET [26076] ERROR:  canceling statement due to user request
+2024-02-20 18:32:11.526 CET [26528] LOG:  received fast shutdown request
+2024-02-20 18:32:11.531 CET [26528] LOG:  aborting any active transactions
+2024-02-20 18:32:11.531 CET [26528] LOG:  worker process: logical replication launcher (PID 15284) exited with exit code 1
+2024-02-20 18:32:11.555 CET [18132] LOG:  shutting down
+2024-02-20 18:32:11.620 CET [26528] LOG:  database system is shut down
+2024-02-21 02:30:50.468 CET [11128] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-21 02:30:50.468 CET [11128] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-21 02:30:50.528 CET [13324] LOG:  database system was shut down at 2024-02-20 18:32:11 CET
+2024-02-21 02:30:50.554 CET [11128] LOG:  database system is ready to accept connections
+2024-02-21 03:49:58.799 CET [18696] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.809 CET [3240] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.811 CET [16768] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.811 CET [6708] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.812 CET [16444] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.816 CET [9840] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.818 CET [15912] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.818 CET [6792] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.818 CET [16656] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:49:58.818 CET [16220] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.228 CET [18160] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.228 CET [8068] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.228 CET [14880] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.229 CET [17312] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.230 CET [17524] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.231 CET [8268] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.234 CET [13952] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.234 CET [18876] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.235 CET [19172] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 03:51:24.240 CET [5600] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.647 CET [19140] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.647 CET [8468] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.647 CET [16900] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.648 CET [17436] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.651 CET [18824] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.653 CET [11608] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.654 CET [17340] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.656 CET [11100] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.658 CET [3260] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:05:20.658 CET [5648] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.182 CET [8716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.183 CET [18236] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.184 CET [16732] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.184 CET [17784] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.186 CET [8268] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.186 CET [18716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.187 CET [4328] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.187 CET [1368] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.187 CET [18568] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:32:19.189 CET [1948] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.077 CET [15660] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.077 CET [10088] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.077 CET [18588] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.077 CET [15712] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.077 CET [3108] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.078 CET [18980] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.081 CET [4056] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.082 CET [16860] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.082 CET [10152] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:36:07.083 CET [5600] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.104 CET [16648] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.104 CET [4748] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.106 CET [13508] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.106 CET [16708] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.107 CET [2916] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.108 CET [17132] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.108 CET [17296] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.109 CET [18008] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.110 CET [8180] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:47:34.111 CET [12048] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.939 CET [17032] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.939 CET [17148] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.940 CET [15068] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.940 CET [19272] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.942 CET [16624] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.943 CET [1552] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.944 CET [18016] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.945 CET [10004] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.946 CET [10828] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 04:58:37.947 CET [18768] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.079 CET [15192] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.080 CET [15976] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.080 CET [17032] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.080 CET [8004] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.080 CET [11260] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.081 CET [5444] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.081 CET [11060] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.082 CET [10576] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.082 CET [8264] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-21 12:45:12.083 CET [10832] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-22 03:37:22.665 CET [11128] LOG:  server process (PID 10040) was terminated by exception 0xC000013A
+2024-02-22 03:37:22.665 CET [11128] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-22 03:37:22.665 CET [11128] LOG:  terminating any other active server processes
+2024-02-22 03:37:22.666 CET [15412] WARNING:  terminating connection because of crash of another server process
+2024-02-22 03:37:22.666 CET [15412] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-22 03:37:22.666 CET [15412] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-22 03:37:22.683 CET [11128] LOG:  all server processes terminated; reinitializing
+2024-02-22 03:37:22.714 CET [18992] LOG:  database system was interrupted; last known up at 2024-02-22 03:30:53 CET
+2024-02-22 03:37:23.285 CET [18992] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-22 03:37:23.298 CET [18992] LOG:  redo starts at 0/16FAFE0
+2024-02-22 03:37:23.298 CET [18992] LOG:  invalid record length at 0/16FB0C0: wanted 24, got 0
+2024-02-22 03:37:23.299 CET [18992] LOG:  redo done at 0/16FB088
+2024-02-22 03:37:23.344 CET [11128] LOG:  database system is ready to accept connections
+2024-02-22 03:37:26.977 CET [17076] ERROR:  canceling statement due to user request
+2024-02-22 03:37:26.977 CET [14764] ERROR:  canceling statement due to user request
+2024-02-22 03:37:26.977 CET [11128] LOG:  received fast shutdown request
+2024-02-22 03:37:26.983 CET [11128] LOG:  aborting any active transactions
+2024-02-22 03:37:26.996 CET [11128] LOG:  worker process: logical replication launcher (PID 17076) exited with exit code 1
+2024-02-22 03:37:27.026 CET [17608] LOG:  shutting down
+2024-02-22 03:37:27.075 CET [11128] LOG:  database system is shut down
+2024-02-23 02:02:42.021 CET [16812] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-23 02:02:42.021 CET [16812] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-23 02:02:42.131 CET [1316] LOG:  database system was shut down at 2024-02-22 03:37:27 CET
+2024-02-23 02:02:42.233 CET [16812] LOG:  database system is ready to accept connections
+2024-02-23 02:27:24.629 CET [3376] ERROR:  canceling statement due to user request
+2024-02-23 02:27:24.630 CET [16812] LOG:  received fast shutdown request
+2024-02-23 02:27:24.633 CET [16812] LOG:  aborting any active transactions
+2024-02-23 02:27:24.644 CET [16812] LOG:  worker process: logical replication launcher (PID 3376) exited with exit code 1
+2024-02-23 02:27:24.645 CET [13980] LOG:  shutting down
+2024-02-23 02:27:24.691 CET [16812] LOG:  database system is shut down
+2024-02-23 02:28:26.912 CET [16444] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-23 02:28:26.912 CET [16444] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-23 02:28:26.963 CET [16352] LOG:  database system was shut down at 2024-02-23 02:27:24 CET
+2024-02-23 02:28:27.026 CET [16444] LOG:  database system is ready to accept connections
+2024-02-23 02:28:30.256 CET [4292] ERROR:  canceling statement due to user request
+2024-02-23 02:28:30.257 CET [16444] LOG:  received fast shutdown request
+2024-02-23 02:28:30.261 CET [16444] LOG:  aborting any active transactions
+2024-02-23 02:28:30.280 CET [16444] LOG:  worker process: logical replication launcher (PID 4292) exited with exit code 1
+2024-02-23 02:28:30.295 CET [16760] LOG:  shutting down
+2024-02-23 02:28:30.344 CET [16444] LOG:  database system is shut down
+2024-02-23 02:28:53.484 CET [10816] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-23 02:28:53.484 CET [10816] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-23 02:28:53.606 CET [14564] LOG:  database system was shut down at 2024-02-23 02:28:30 CET
+2024-02-23 02:28:53.714 CET [10816] LOG:  database system is ready to accept connections
+2024-02-23 02:37:51.912 CET [10816] LOG:  received fast shutdown request
+2024-02-23 02:37:51.925 CET [10816] LOG:  aborting any active transactions
+2024-02-23 02:37:51.925 CET [15052] FATAL:  terminating connection due to administrator command
+2024-02-23 02:37:51.945 CET [10816] LOG:  worker process: logical replication launcher (PID 13776) exited with exit code 1
+2024-02-23 02:37:51.946 CET [5096] LOG:  shutting down
+2024-02-23 02:37:52.009 CET [10816] LOG:  database system is shut down
+2024-02-23 02:40:30.379 CET [10060] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-23 02:40:30.379 CET [10060] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-23 02:40:30.562 CET [8024] LOG:  database system was shut down at 2024-02-23 02:37:51 CET
+2024-02-23 02:40:30.650 CET [10060] LOG:  database system is ready to accept connections
+2024-02-23 02:41:46.631 CET [16716] ERROR:  canceling statement due to user request
+2024-02-23 02:41:46.631 CET [10060] LOG:  received fast shutdown request
+2024-02-23 02:41:46.636 CET [10060] LOG:  aborting any active transactions
+2024-02-23 02:41:46.643 CET [10060] LOG:  worker process: logical replication launcher (PID 16716) exited with exit code 1
+2024-02-23 02:41:46.658 CET [17036] LOG:  shutting down
+2024-02-23 02:41:46.707 CET [10060] LOG:  database system is shut down
+2024-02-23 02:42:46.819 CET [3972] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-23 02:42:46.819 CET [3972] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-23 02:42:46.918 CET [15820] LOG:  database system was shut down at 2024-02-23 02:41:46 CET
+2024-02-23 02:42:47.014 CET [3972] LOG:  database system is ready to accept connections
+2024-02-23 02:47:07.843 CET [10892] ERROR:  canceling statement due to user request
+2024-02-23 02:47:07.843 CET [3972] LOG:  received fast shutdown request
+2024-02-23 02:47:07.847 CET [3972] LOG:  aborting any active transactions
+2024-02-23 02:47:07.868 CET [3972] LOG:  worker process: logical replication launcher (PID 10892) exited with exit code 1
+2024-02-23 02:47:07.870 CET [18184] LOG:  shutting down
+2024-02-23 02:47:07.918 CET [3972] LOG:  database system is shut down
+2024-02-23 02:47:22.042 CET [2204] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-23 02:47:22.042 CET [2204] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-23 02:47:22.096 CET [7564] LOG:  database system was shut down at 2024-02-23 02:47:07 CET
+2024-02-23 02:47:22.185 CET [2204] LOG:  database system is ready to accept connections
+2024-02-23 04:04:24.270 CET [6712] ERROR:  canceling statement due to user request
+2024-02-23 04:04:24.271 CET [2204] LOG:  received fast shutdown request
+2024-02-23 04:04:24.276 CET [2204] LOG:  aborting any active transactions
+2024-02-23 04:04:24.276 CET [17048] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.276 CET [18368] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.277 CET [7608] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.277 CET [7928] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.277 CET [18228] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.278 CET [456] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.278 CET [10636] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.278 CET [8944] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.278 CET [3936] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.279 CET [8176] FATAL:  terminating connection due to administrator command
+2024-02-23 04:04:24.284 CET [2204] LOG:  worker process: logical replication launcher (PID 6712) exited with exit code 1
+2024-02-23 04:04:24.304 CET [16816] LOG:  shutting down
+2024-02-23 04:04:24.354 CET [2204] LOG:  database system is shut down
+2024-02-25 02:14:08.255 CET [428] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-25 02:14:08.255 CET [428] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-25 02:14:08.306 CET [5580] LOG:  database system was shut down at 2024-02-23 04:04:24 CET
+2024-02-25 02:14:08.358 CET [428] LOG:  database system is ready to accept connections
+2024-02-25 03:48:17.586 CET [7780] ERROR:  canceling statement due to user request
+2024-02-25 03:48:17.587 CET [428] LOG:  received fast shutdown request
+2024-02-25 03:48:17.591 CET [428] LOG:  aborting any active transactions
+2024-02-25 03:48:17.603 CET [428] LOG:  worker process: logical replication launcher (PID 7780) exited with exit code 1
+2024-02-25 03:48:17.605 CET [16856] LOG:  shutting down
+2024-02-25 03:48:17.669 CET [428] LOG:  database system is shut down
+2024-02-25 19:11:23.092 CET [9184] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-25 19:11:23.093 CET [9184] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-25 19:11:23.159 CET [8552] LOG:  database system was shut down at 2024-02-25 03:48:17 CET
+2024-02-25 19:11:23.212 CET [9184] LOG:  database system is ready to accept connections
+2024-02-26 00:01:34.490 CET [8920] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.490 CET [18300] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.493 CET [13068] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.493 CET [2768] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.493 CET [10732] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.493 CET [17876] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.493 CET [7092] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.493 CET [18148] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.494 CET [17268] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 00:01:34.494 CET [3824] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-26 02:25:49.831 CET [8356] ERROR:  canceling statement due to user request
+2024-02-26 02:25:49.831 CET [9184] LOG:  received fast shutdown request
+2024-02-26 02:25:49.837 CET [9184] LOG:  aborting any active transactions
+2024-02-26 02:25:49.850 CET [9184] LOG:  worker process: logical replication launcher (PID 8356) exited with exit code 1
+2024-02-26 02:25:49.852 CET [8340] LOG:  shutting down
+2024-02-26 02:25:49.899 CET [9184] LOG:  database system is shut down
+2024-02-27 23:53:47.432 CET [10964] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-27 23:53:47.433 CET [10964] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-27 23:53:47.492 CET [5036] LOG:  database system was shut down at 2024-02-26 02:25:49 CET
+2024-02-27 23:53:47.556 CET [10964] LOG:  database system is ready to accept connections
+2024-02-28 01:08:14.508 CET [5612] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.509 CET [2700] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.509 CET [19336] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.509 CET [4380] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.509 CET [11596] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.509 CET [19780] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.510 CET [15928] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.510 CET [17872] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.510 CET [4144] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:08:14.510 CET [18188] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:13:13.655 CET [17664] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:13:13.655 CET [17664] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:16:33.609 CET [18288] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:16:33.609 CET [18288] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:19:32.021 CET [15380] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.021 CET [17716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.021 CET [13072] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.021 CET [19416] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.022 CET [8984] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.024 CET [6080] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.025 CET [10960] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.025 CET [16024] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.025 CET [18288] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:19:32.026 CET [14148] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:20:00.529 CET [19112] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:20:00.529 CET [19112] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:21:38.066 CET [5836] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:21:38.066 CET [5836] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:21:42.793 CET [5836] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:21:42.793 CET [5836] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:22:45.513 CET [5836] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.513 CET [2368] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.513 CET [18760] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.513 CET [14496] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.513 CET [12980] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.514 CET [8464] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.514 CET [10020] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.514 CET [16336] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.514 CET [5596] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:22:45.515 CET [15196] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:25:24.575 CET [9832] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:25:24.575 CET [9832] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:26:22.458 CET [9832] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:26:22.458 CET [9832] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:26:33.828 CET [9832] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:26:33.828 CET [9832] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:29:04.301 CET [12768] ERROR:  syntax error at or near "fetch" at character 40
+2024-02-28 01:29:04.301 CET [12768] STATEMENT:  SELECT * FROM naves OFFSET $1 LIMIT $2 fetch first $3 rows only
+2024-02-28 01:31:00.766 CET [18744] ERROR:  operator does not exist: ? integer at character 28
+2024-02-28 01:31:00.766 CET [18744] HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2024-02-28 01:31:00.766 CET [18744] STATEMENT:  SELECT * FROM naves OFFSET ?1 LIMIT ?2
+2024-02-28 01:31:02.159 CET [18744] ERROR:  operator does not exist: ? integer at character 28
+2024-02-28 01:31:02.159 CET [18744] HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+2024-02-28 01:31:02.159 CET [18744] STATEMENT:  SELECT * FROM naves OFFSET ?1 LIMIT ?2
+2024-02-28 01:31:31.952 CET [2632] ERROR:  syntax error at or near "fetch" at character 40
+2024-02-28 01:31:31.952 CET [2632] STATEMENT:  SELECT * FROM naves OFFSET $1 LIMIT $2 fetch first $3 rows only
+2024-02-28 01:33:02.226 CET [2632] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.229 CET [10768] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.229 CET [2480] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.229 CET [18816] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.229 CET [15276] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.229 CET [5508] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.230 CET [1852] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.229 CET [10836] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.230 CET [11624] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:33:02.230 CET [20172] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:34:52.313 CET [1480] ERROR:  syntax error at or near "$1" at character 33
+2024-02-28 01:34:52.313 CET [1480] STATEMENT:  SELECT * FROM naves fetch first $1 rows only
+2024-02-28 01:41:51.927 CET [1480] ERROR:  syntax error at or near "$1" at character 33
+2024-02-28 01:41:51.927 CET [1480] STATEMENT:  SELECT * FROM naves fetch first $1 rows only
+2024-02-28 01:42:24.071 CET [18744] ERROR:  syntax error at or near "?" at character 33
+2024-02-28 01:42:24.071 CET [18744] STATEMENT:  SELECT * FROM naves fetch first ? rows only
+2024-02-28 01:42:37.827 CET [18744] ERROR:  syntax error at or near "'10'" at character 33
+2024-02-28 01:42:37.827 CET [18744] STATEMENT:  SELECT * FROM naves fetch first '10' rows only
+2024-02-28 01:43:08.767 CET [1480] ERROR:  syntax error at or near "$1" at character 33
+2024-02-28 01:43:08.767 CET [1480] STATEMENT:  SELECT * FROM naves fetch first $1 rows only
+2024-02-28 01:46:59.556 CET [1480] ERROR:  syntax error at or near "$1" at character 33
+2024-02-28 01:46:59.556 CET [1480] STATEMENT:  SELECT * FROM naves fetch first $1 rows only
+2024-02-28 01:47:44.212 CET [1480] ERROR:  syntax error at or near "$1" at character 33
+2024-02-28 01:47:44.212 CET [1480] STATEMENT:  SELECT * FROM naves fetch first $1 rows only
+2024-02-28 01:51:41.033 CET [9448] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.033 CET [17792] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.033 CET [1480] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.034 CET [9960] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.034 CET [16656] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.034 CET [9520] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.034 CET [18268] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.034 CET [4556] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.035 CET [1196] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:51:41.035 CET [14400] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 01:56:06.193 CET [3176] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:56:06.193 CET [3176] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 01:56:36.165 CET [3176] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 01:56:36.165 CET [3176] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 02:06:25.212 CET [2504] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 02:06:25.212 CET [2504] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 02:10:11.795 CET [1968] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.795 CET [20208] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.796 CET [19784] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.796 CET [8468] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.796 CET [18220] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.796 CET [20024] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.797 CET [20268] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.797 CET [2504] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.798 CET [20112] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:11.800 CET [13736] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:10:53.889 CET [20340] ERROR:  syntax error at or near "$1" at character 32
+2024-02-28 02:10:53.889 CET [20340] STATEMENT:  SELECT * FROM Nave fetch first $1 rows only
+2024-02-28 02:19:50.565 CET [20340] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.565 CET [19872] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.565 CET [10368] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.566 CET [9740] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.566 CET [3968] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.567 CET [13968] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.568 CET [14640] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.568 CET [14456] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.569 CET [248] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:19:50.569 CET [15404] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:32:24.139 CET [10020] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 02:32:24.139 CET [10020] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 02:32:54.799 CET [10020] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 02:32:54.799 CET [10020] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 02:34:56.572 CET [10020] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.573 CET [6948] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.573 CET [13960] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.573 CET [20396] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.573 CET [13796] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.573 CET [10080] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.574 CET [17220] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.575 CET [11412] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.575 CET [20360] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:34:56.575 CET [16116] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 02:57:52.393 CET [7804] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 02:57:52.393 CET [7804] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:01:06.793 CET [7804] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.794 CET [15108] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.794 CET [2240] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.794 CET [10776] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.795 CET [17672] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.796 CET [17224] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.796 CET [14508] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.796 CET [7368] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.797 CET [19508] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:01:06.797 CET [16876] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:08:04.601 CET [2996] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:08:04.601 CET [2996] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:09:04.386 CET [2996] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:09:04.386 CET [2996] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:09:10.583 CET [2996] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:09:10.583 CET [2996] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:09:29.724 CET [2996] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:09:29.724 CET [2996] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:11:59.116 CET [2996] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:11:59.116 CET [2996] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:12:11.614 CET [2996] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:12:11.614 CET [2996] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:13:57.074 CET [2996] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:13:57.074 CET [2996] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:15:31.207 CET [2996] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:15:31.207 CET [2996] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:19:44.739 CET [18760] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.739 CET [11092] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.739 CET [18100] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.739 CET [17956] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.739 CET [10776] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.740 CET [18340] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.740 CET [7924] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.740 CET [15068] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.740 CET [2996] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:19:44.740 CET [16624] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:22:50.709 CET [20340] ERROR:  syntax error at or near "$2" at character 71
+2024-02-28 03:22:50.709 CET [20340] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 offset $1 rows fetch first $2 rows only
+2024-02-28 03:23:36.796 CET [20180] ERROR:  syntax error at or near "$1" at character 56
+2024-02-28 03:23:36.796 CET [20180] STATEMENT:  select n1_0.id,n1_0.nombre from naves n1_0 fetch first $1 rows only
+2024-02-28 03:36:35.340 CET [14972] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.340 CET [18456] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.340 CET [9520] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.340 CET [8516] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.340 CET [19932] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.342 CET [19608] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.343 CET [20220] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.343 CET [18328] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.343 CET [11968] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:36:35.344 CET [18752] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.640 CET [13660] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.643 CET [3892] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.643 CET [12640] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.643 CET [5612] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.643 CET [10780] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.644 CET [18816] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.644 CET [19976] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.645 CET [14544] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.645 CET [16796] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 03:45:17.646 CET [9908] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.614 CET [14768] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.614 CET [7804] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.614 CET [10972] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.615 CET [12524] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.615 CET [14808] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.615 CET [17136] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.615 CET [10052] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.615 CET [2696] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.616 CET [16460] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:08:37.616 CET [19404] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:22:20.831 CET [13816] ERROR:  relation "nave" does not exist at character 15
+2024-02-28 04:22:20.831 CET [13816] STATEMENT:  SELECT * FROM Nave n LIMIT $1 OFFSET $2
+2024-02-28 04:25:14.160 CET [19832] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.160 CET [18524] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.161 CET [456] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.161 CET [18916] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.161 CET [6304] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.161 CET [11616] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.161 CET [18512] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.162 CET [16232] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.162 CET [2952] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:25:14.162 CET [16380] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.110 CET [12556] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.110 CET [4492] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.111 CET [17068] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.111 CET [18728] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.111 CET [9744] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.111 CET [18588] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.112 CET [15840] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.112 CET [18856] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.112 CET [14808] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 04:45:45.111 CET [17304] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.336 CET [18524] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.336 CET [18236] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.337 CET [10780] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.337 CET [19716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.337 CET [18680] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.337 CET [8952] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.338 CET [9908] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.338 CET [8380] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.338 CET [9632] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:34:27.338 CET [11980] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.490 CET [10812] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.490 CET [6904] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.491 CET [14640] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.491 CET [17716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.491 CET [16840] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.491 CET [10880] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.492 CET [20392] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.493 CET [7512] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.493 CET [1648] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 05:40:32.493 CET [10052] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.854 CET [19716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.854 CET [5248] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.854 CET [13032] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.854 CET [5616] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.854 CET [15404] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.855 CET [976] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.855 CET [9632] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.856 CET [13276] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.856 CET [10992] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:12:34.857 CET [1480] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.708 CET [20944] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.708 CET [1368] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.708 CET [15192] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.709 CET [19104] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.709 CET [10432] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.709 CET [14316] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.709 CET [17716] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.709 CET [20516] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.710 CET [11484] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:23:03.711 CET [5460] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.115 CET [21084] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.115 CET [10120] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.116 CET [16676] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.116 CET [2572] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.117 CET [11524] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.117 CET [11404] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.118 CET [20556] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.118 CET [20748] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.118 CET [14832] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:32:51.119 CET [20696] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.221 CET [20060] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.221 CET [14008] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.221 CET [4556] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.221 CET [20632] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.221 CET [10932] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.222 CET [2008] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.222 CET [20532] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.223 CET [7092] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.223 CET [13768] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 06:39:43.223 CET [12568] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [21392] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [2756] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [21140] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [18364] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [15968] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [21252] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [21288] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [16180] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.103 CET [20884] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 07:14:37.104 CET [20956] LOG:  could not receive data from client: unrecognized winsock error 10054
+2024-02-28 16:39:06.785 CET [10964] LOG:  server process (PID 14516) was terminated by exception 0xC000013A
+2024-02-28 16:39:06.785 CET [10964] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-28 16:39:06.785 CET [10964] LOG:  terminating any other active server processes
+2024-02-28 16:39:06.786 CET [3056] WARNING:  terminating connection because of crash of another server process
+2024-02-28 16:39:06.786 CET [3056] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-28 16:39:06.786 CET [3056] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-28 16:39:06.801 CET [10964] LOG:  statistics collector process (PID 11856) was terminated by exception 0xC000013A
+2024-02-28 16:39:06.801 CET [10964] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-28 16:39:06.801 CET [10964] LOG:  all server processes terminated; reinitializing
+2024-02-28 16:39:06.837 CET [11736] LOG:  database system was interrupted; last known up at 2024-02-28 07:13:52 CET
+2024-02-28 16:39:08.170 CET [11736] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-28 16:39:08.174 CET [11736] LOG:  redo starts at 0/173EF98
+2024-02-28 16:39:08.175 CET [11736] LOG:  invalid record length at 0/173F078: wanted 24, got 0
+2024-02-28 16:39:08.175 CET [11736] LOG:  redo done at 0/173F040
+2024-02-28 16:39:08.263 CET [10964] LOG:  database system is ready to accept connections
+2024-02-28 16:39:08.315 CET [10964] LOG:  worker process: logical replication launcher (PID 8136) was terminated by exception 0xC000013A
+2024-02-28 16:39:08.315 CET [10964] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-28 16:39:08.316 CET [10964] LOG:  terminating any other active server processes
+2024-02-28 16:39:08.316 CET [15120] WARNING:  terminating connection because of crash of another server process
+2024-02-28 16:39:08.316 CET [15120] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-28 16:39:08.316 CET [15120] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-28 16:39:08.340 CET [10964] LOG:  statistics collector process (PID 3568) was terminated by exception 0xC000013A
+2024-02-28 16:39:08.340 CET [10964] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-28 16:39:08.340 CET [10964] LOG:  all server processes terminated; reinitializing
+2024-02-28 16:39:08.376 CET [18392] LOG:  database system was interrupted; last known up at 2024-02-28 16:39:08 CET
+2024-02-28 16:39:08.856 CET [18392] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-28 16:39:08.859 CET [18392] LOG:  invalid record length at 0/173F0E8: wanted 24, got 0
+2024-02-28 16:39:08.859 CET [18392] LOG:  redo is not required
+2024-02-28 16:39:08.928 CET [10964] LOG:  database system is ready to accept connections
+2024-02-28 16:39:09.581 CET [14892] ERROR:  canceling statement due to user request
+2024-02-28 16:39:09.581 CET [20560] ERROR:  canceling statement due to user request
+2024-02-28 16:39:09.582 CET [10964] LOG:  received fast shutdown request
+2024-02-28 16:39:09.585 CET [10964] LOG:  aborting any active transactions
+2024-02-28 16:39:09.586 CET [10964] LOG:  worker process: logical replication launcher (PID 20560) exited with exit code 1
+2024-02-28 16:39:09.627 CET [2104] LOG:  shutting down
+2024-02-28 16:39:09.692 CET [10964] LOG:  database system is shut down
+2024-02-28 17:21:24.511 CET [1928] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-28 17:21:24.511 CET [1928] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-28 17:21:24.563 CET [16256] LOG:  database system was shut down at 2024-02-28 16:39:09 CET
+2024-02-28 17:21:24.593 CET [1928] LOG:  database system is ready to accept connections
+2024-02-28 18:07:41.812 CET [9676] LOG:  invalid length of startup packet
+2024-02-28 18:07:42.896 CET [17624] LOG:  invalid length of startup packet
+2024-02-28 18:37:16.579 CET [15888] ERROR:  canceling statement due to user request
+2024-02-28 18:37:16.579 CET [1928] LOG:  received fast shutdown request
+2024-02-28 18:37:16.596 CET [1928] LOG:  aborting any active transactions
+2024-02-28 18:37:16.596 CET [1928] LOG:  worker process: logical replication launcher (PID 15888) exited with exit code 1
+2024-02-28 18:37:16.599 CET [16500] LOG:  shutting down
+2024-02-28 18:37:16.628 CET [1928] LOG:  database system is shut down
+2024-02-28 20:07:43.121 CET [16612] LOG:  listening on IPv6 address "::1", port 5432
+2024-02-28 20:07:43.121 CET [16612] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-02-28 20:07:43.173 CET [16464] LOG:  database system was shut down at 2024-02-28 18:37:16 CET
+2024-02-28 20:07:43.202 CET [16612] LOG:  database system is ready to accept connections
+2024-02-28 21:07:52.350 CET [16612] LOG:  server process (PID 18068) was terminated by exception 0xC000013A
+2024-02-28 21:07:52.350 CET [16612] DETAIL:  Failed process was running: SET search_path = public,public,"$user"
+2024-02-28 21:07:52.350 CET [16612] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2024-02-28 21:07:52.350 CET [16612] LOG:  terminating any other active server processes
+2024-02-28 21:07:52.351 CET [5648] WARNING:  terminating connection because of crash of another server process
+2024-02-28 21:07:52.351 CET [5648] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-28 21:07:52.351 CET [5648] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-28 21:07:52.351 CET [18328] WARNING:  terminating connection because of crash of another server process
+2024-02-28 21:07:52.351 CET [18328] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-28 21:07:52.351 CET [18328] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-28 21:07:52.352 CET [9748] WARNING:  terminating connection because of crash of another server process
+2024-02-28 21:07:52.352 CET [9748] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2024-02-28 21:07:52.352 CET [9748] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2024-02-28 21:07:52.358 CET [16612] LOG:  all server processes terminated; reinitializing
+2024-02-28 21:07:52.393 CET [3340] LOG:  database system was interrupted; last known up at 2024-02-28 20:12:43 CET
+2024-02-28 21:07:52.985 CET [3340] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-02-28 21:07:52.997 CET [3340] LOG:  redo starts at 0/173F990
+2024-02-28 21:07:52.998 CET [3340] LOG:  invalid record length at 0/173FA70: wanted 24, got 0
+2024-02-28 21:07:52.998 CET [3340] LOG:  redo done at 0/173FA38
+2024-02-28 21:07:53.038 CET [16612] LOG:  database system is ready to accept connections
+2024-02-28 21:07:54.425 CET [10836] ERROR:  canceling statement due to user request
+2024-02-28 21:07:54.425 CET [19088] ERROR:  canceling statement due to user request
+2024-02-28 21:07:54.425 CET [16612] LOG:  received fast shutdown request
+2024-02-28 21:07:54.441 CET [16612] LOG:  aborting any active transactions
+2024-02-28 21:07:54.442 CET [16612] LOG:  worker process: logical replication launcher (PID 10836) exited with exit code 1
+2024-02-28 21:07:54.469 CET [19432] LOG:  shutting down
+2024-02-28 21:07:54.495 CET [16612] LOG:  database system is shut down

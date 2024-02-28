@@ -1,0 +1,100 @@
+package com.onemore.msnaves.naves.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.mapstruct.factory.Mappers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.onemore.msnaves.db.naves.Nave;
+import com.onemore.msnaves.db.naves.NaveDto;
+import com.onemore.msnaves.db.naves.NavesMapper;
+import com.onemore.msnaves.generic.PaginationRequest;
+import com.onemore.msnaves.naves.service.NavesService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@RestController
+@RequestMapping("/naves")
+@Api(value = "Naves Management System", tags = "Naves")
+public class NavesApi {
+
+    @Autowired
+    private NavesService navesService;
+
+    @ApiOperation(value = "Obtener todas las naves", response = ResponseEntity.class)
+    @GetMapping
+    public ResponseEntity<List<Nave>> getAllNaves() {
+        List<Nave> naves = navesService.getAll();
+        return new ResponseEntity<>(naves, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Obtener todas las naves paginadas", response = ResponseEntity.class)
+    @PostMapping("/paginated")
+    public ResponseEntity<List<Nave>> getAllNaves(@RequestBody PaginationRequest paginationRequest) {
+        PageRequest pageRequest = PageRequest.of(paginationRequest.getPageNumber(), paginationRequest.getPageSize());
+        List<Nave> navesPaginated = navesService.getAllPaginated(pageRequest);
+        return new ResponseEntity<>(navesPaginated, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Obtener una nave por su ID", response = ResponseEntity.class)
+    @GetMapping("/{id}")
+    public ResponseEntity<Nave> getNaveById(@PathVariable("id") Integer id) {
+        Optional<Nave> nave = navesService.getById(id);
+        if (nave.isPresent()) {
+            return new ResponseEntity<>(nave.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @ApiOperation(value = "Crear una nueva nave", response = ResponseEntity.class)
+    @PostMapping
+    public ResponseEntity<Nave> createNave(@RequestBody NaveDto naveDto) {
+        Nave createdNave = navesService.create(NavesMapper.INSTANCE.toEntity(naveDto));
+        return new ResponseEntity<>(createdNave, HttpStatus.CREATED);
+    }
+
+    @ApiOperation(value = "Actualizar una nave por su ID", response = ResponseEntity.class)
+    @PutMapping("/{id}")
+    public ResponseEntity<Nave> updateNave(@PathVariable("id") Integer id, @RequestBody NaveDto naveDto) {
+        Nave updatedNave = navesService.update(id, NavesMapper.INSTANCE.toEntity(naveDto));
+        return new ResponseEntity<>(updatedNave, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Eliminar una nave por su ID", response = ResponseEntity.class)
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteNave(@PathVariable("id") Integer id) {
+        navesService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @ApiOperation(value = "Buscar una nave por su nombre", response = ResponseEntity.class)
+    @GetMapping("/nombre/{nombre}")
+    public ResponseEntity<List<Nave>> getNaveByNick(@PathVariable("nombre") String nombre) {
+        List<Nave> naves = navesService.findByNombre(nombre);
+        if (!naves.isEmpty()) {
+            return new ResponseEntity<>(naves, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @ApiOperation(value = "Prueba de estado del servicio", response = HttpStatus.class)
+    @GetMapping("/test")
+    public HttpStatus test() {
+        return HttpStatus.OK;
+    }
+}

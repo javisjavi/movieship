@@ -1,0 +1,111 @@
+package com.onemore.msnaves.naves.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.mapstruct.factory.Mappers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.onemore.msnaves.db.naves.Nave;
+import com.onemore.msnaves.db.naves.NaveDto;
+import com.onemore.msnaves.db.naves.NavesMapper;
+import com.onemore.msnaves.generic.PaginationRequest;
+import com.onemore.msnaves.naves.service.NavesService;
+
+@RestController
+@RequestMapping("/naves")
+public class NavesApi {
+
+    @Autowired
+    private NavesService navesService;
+
+    /*
+     * CRUD
+     */
+    
+    @GetMapping
+    public ResponseEntity<List<Nave>> getAllNaves() {
+        List<Nave> naves = navesService.getAll();
+        return new ResponseEntity<>(naves, HttpStatus.OK);
+    }
+    
+    @PostMapping("/paginated")
+    public ResponseEntity<List<Nave>> getAllNaves(@RequestBody PaginationRequest paginationRequest) {
+        PageRequest pageRequest = PageRequest.of(paginationRequest.getPageNumber(), paginationRequest.getPageSize());
+        List<Nave> navesPaginated = navesService.getAllPaginated(pageRequest);
+        return new ResponseEntity<>(navesPaginated, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Nave> getNaveById(@PathVariable("id") Integer id) {
+        Optional<Nave> nave = navesService.getById(id);
+        if (nave.isPresent()) {
+            return new ResponseEntity<>(nave.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Nave> createNave(@RequestBody Nave nave) {
+        Nave createdNave = navesService.create(nave);
+        return new ResponseEntity<>(createdNave, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Nave> updateNave(@PathVariable("id") Integer id, @RequestBody NaveDto naveDto) {
+    	NavesMapper navesMapper = Mappers.getMapper(NavesMapper.class);
+    	Nave nave = navesMapper.toEntity(naveDto);
+        Nave updatedNave = navesService.update(id, nave);
+        return new ResponseEntity<>(updatedNave, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteNave(@PathVariable("id") Integer id) {
+        navesService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    
+    /*
+     * 
+     */
+    
+    @GetMapping("/nombre/{nombre}")
+    public ResponseEntity<List<Nave>> getNaveByNick(@PathVariable("nombre") String nombre) {
+        List<Nave> naves = navesService.findByNombre(nombre);
+        if (!naves.isEmpty()) {
+            return new ResponseEntity<>(naves, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    @Autowired
+    private ConfigurableApplicationContext context;
+    
+    @PostMapping("/stop")
+    public String shutdownApplication() {
+        SpringApplication.exit(context, () -> 0);
+        return "Application stopped";
+    }
+    
+    @GetMapping("/test")
+    public HttpStatus test() {
+        return HttpStatus.OK;
+    }
+    
+}

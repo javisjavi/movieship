@@ -1,0 +1,14 @@
+package com.onemore.msusuarios;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class NavesApiIntegrationTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,93 @@
+package com.onemore.msnaves;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.onemore.msnaves.common.PaginatedRequest;
+import com.onemore.msnaves.naves.controller.NavesApi;
+import com.onemore.msnaves.naves.db.Nave;
+import com.onemore.msnaves.naves.db.NaveDto;
+import com.onemore.msnaves.naves.service.NavesService;
+
+class NavesApiTest {
+
+    @Mock
+    private NavesService navesService;
+
+    @InjectMocks
+    private NavesApi navesApi;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    void testGetAllNaves() {
+        // Arrange
+        List<Nave> naves = new ArrayList<>();
+        naves.add(new Nave());
+        when(navesService.getAll()).thenReturn(naves);
+
+        // Act
+        ResponseEntity<List<Nave>> responseEntity = navesApi.getAllNaves();
+
+        // Assert
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(naves, responseEntity.getBody());
+    }
+
+    // Otros tests...
+
+    @Test
+    void testGetNaveByNombreInternalServerError() {
+        // Arrange
+        String nombre = "Falcon";
+        when(navesService.findByPartialNombre(nombre)).thenThrow(new RuntimeException("Internal Server Error"));
+
+        // Act
+        ResponseEntity<List<Nave>> responseEntity = navesApi.getNaveByNombre(nombre);
+
+        // Assert
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+        assertNull(responseEntity.getBody());
+    }
+
+    @Test
+    void testTest() {
+        // Act
+        HttpStatus status = navesApi.test();
+
+        // Assert
+        assertEquals(HttpStatus.OK, status);
+    }
+
+    @Test
+    void testLogin() {
+        // Act
+        ResponseEntity<String> responseEntity = navesApi.login();
+
+        // Assert
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals("EsTo.Es.Un.ToKeN", responseEntity.getBody());
+    }
+    
+}
+

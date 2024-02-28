@@ -1,0 +1,43 @@
+package com.onemore.msusuarios.db.usuarios;
+
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-02-27T19:43:43+0100",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.10 (Oracle Corporation)"
+)
+@Component
+public class UsuariosMapperImpl implements UsuariosMapper {
+
+    @Override
+    public UsuarioDto toDto(Usuario usuario) {
+        if ( usuario == null ) {
+            return null;
+        }
+
+        UsuarioDto usuarioDto = new UsuarioDto();
+
+        usuarioDto.setId( usuario.getId() );
+        usuarioDto.setNombre( usuario.getNombre() );
+        usuarioDto.setNick( usuario.getNick() );
+
+        return usuarioDto;
+    }
+
+    @Override
+    public Usuario toEntity(UsuarioDto usuario) {
+        if ( usuario == null ) {
+            return null;
+        }
+
+        Usuario usuario1 = new Usuario();
+
+        usuario1.setId( usuario.getId() );
+        usuario1.setNombre( usuario.getNombre() );
+        usuario1.setNick( usuario.getNick() );
+
+        return usuario1;
+    }
+}

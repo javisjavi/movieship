@@ -1,0 +1,12 @@
+package com.onemore.msnaves.common;
+
+//@Configuration
+public class SecurityConfig {
+
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+    
+}
+

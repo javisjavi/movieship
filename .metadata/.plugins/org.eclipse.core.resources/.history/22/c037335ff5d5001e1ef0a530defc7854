@@ -1,0 +1,38 @@
+package com.onemore.msnaves.common;
+
+//@Component
+public class JwtAuthenticationFilter /*extends OncePerRequestFilter*/ {
+
+//    private final UserDetailsService userDetailsService;
+//    private final PasswordEncoder passwordEncoder;
+//
+//    public JwtAuthenticationFilter(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+//        this.userDetailsService = userDetailsService;
+//        this.passwordEncoder = passwordEncoder;
+//    }
+//
+//    @Override
+//    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+//        String path = request.getRequestURI();
+//        if (path.equals("/login")) {
+//            // Permitir el acceso sin autenticación al endpoint /login
+//            chain.doFilter(request, response);
+//            return;
+//        }
+//
+//        String header = request.getHeader("Authorization");
+//        if (StringUtils.isEmpty(header) || !header.startsWith("Bearer ")) {
+//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//            response.getWriter().write("Unauthorized");
+//            return;
+//        }
+//
+//        String token = header.replace("Bearer ", "");
+//        // Aquí deberías validar y parsear el token para extraer la información del usuario si lo necesitas
+//        // Por simplicidad, este ejemplo simplemente verifica que el token no esté vacío
+//        if (!StringUtils.isEmpty(token)) {
+//            chain.doFilter(request, response);
+//            return;
+//        }
+//    }
+}

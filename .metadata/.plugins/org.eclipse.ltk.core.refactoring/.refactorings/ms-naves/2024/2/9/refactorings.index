@@ -1,0 +1,30 @@
+1709059637845	Rename package 'com.onemore.msusuarios'
+1709059687821	Copy packages
+1709059703050	Delete element
+1709059929510	Rename compilation unit 'Usuario.java'
+1709059939104	Rename type 'UsuarioDto'
+1709059963909	Rename compilation unit 'UsuariosMapper.java'
+1709059992394	Rename compilation unit 'UsuariosRepository.java'
+1709060005476	Rename compilation unit 'UsuariosApi.java'
+1709060025215	Rename compilation unit 'IUsuariosService.java'
+1709060037437	Rename type 'UsuariosService'
+1709082563389	Delete element
+1709083867677	Delete element
+1709084744625	Copy compilation unit
+1709085299617	Delete element
+1709085847953	Copy compilation unit
+1709090893011	Delete element
+1709091942334	Move compilation units
+1709091974060	Rename type 'MsUsuariosApplication'
+1709092082125	Delete element
+1709092151125	Move compilation units
+1709092336479	Move compilation units
+1709092342020	Delete element
+1709092353434	Rename package 'com.onemore.msnaves.generic'
+1709098872093	Move compilation unit
+1709098928210	Move compilation unit
+1709098977736	Rename type 'PaginationRequest'
+1709100944741	Rename type 'NavesRepository'
+1709102905656	Rename package 'com.onemore.msusuarios'
+1709103471951	Delete element
+1709104461500	Delete element

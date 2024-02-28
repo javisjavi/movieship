@@ -1,0 +1,21 @@
+package com.onemore.msnaves.db.naves;
+
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface NavesRepository extends JpaRepository<Nave, Integer> {
+	
+	List<Nave> findAllByOrderByIdAsc();
+	
+	@Query(value = "SELECT * FROM naves", nativeQuery = true)
+    Page<Nave> findAllWithPagination(Pageable pageable);
+	
+	List<Nave> findByNombre(String nombre);
+	
+}

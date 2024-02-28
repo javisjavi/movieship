@@ -1,0 +1,49 @@
+package com.onemore.msnaves.generic;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public abstract class GenericService<T, ID> implements IGenericService<T, ID> {
+
+    protected JpaRepository<T, ID> repository;
+    protected PagingAndSortingRepository<T, ID> pagingRepository;
+
+    public GenericService(JpaRepository<T, ID> repository, PagingAndSortingRepository<T, ID> pagingRepository) {
+        this.repository = repository;
+        this.pagingRepository = pagingRepository;
+    }
+
+    public List<T> getAll() {
+        return repository.findAll();
+    }
+
+    public Optional<T> getById(ID id) {
+        return repository.findById(id);
+    }
+
+    public T create(T entity) {
+        return repository.save(entity);
+    }
+
+    public T update(ID id, T entity) {
+        T existingEntity = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException(entity.getClass().getSimpleName() + " not found with id: " + id));
+        return repository.save(existingEntity);
+    }
+
+    public void delete(ID id) {
+        T entityToDelete = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Entity not found with id: " + id));
+        repository.delete(entityToDelete);
+    }
+    
+    public Page<T> getAll(Pageable pageable) {
+        return pagingRepository.findAll(pageable);
+    }
+    
+}

@@ -1,0 +1,14 @@
+package com.onemore.msnaves;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class NavesServiceTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

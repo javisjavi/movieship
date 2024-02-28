@@ -1,0 +1,51 @@
+package com.onemore.msnaves.generic;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class GenericServicePaginable<T, ID> implements IGenericService<T, ID> {
+
+	private final PagingAndSortingRepository<T, ID> repository;
+
+    public GenericServicePaginable(PagingAndSortingRepository<T, ID> repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    public List<T> getAll() {
+        return (List<T>) repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+    }
+
+    @Override
+    public Optional<T> getById(ID id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public T create(T entity) {
+        return repository.save(entity);
+    }
+
+    @Override
+    public T update(ID id, T entity) {
+        // Assuming entity already exists, otherwise you might want to handle null case differently
+        return repository.save(entity);
+    }
+
+    @Override
+    public void delete(ID id) {
+        repository.deleteById(id);
+    }
+
+    public Page<T> getAll(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
+    
+}

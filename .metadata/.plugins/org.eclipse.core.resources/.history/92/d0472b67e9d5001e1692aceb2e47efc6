@@ -1,0 +1,9 @@
+package com.onemore.msnaves.db.naves;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface NavesRepositoryPaginable extends PagingAndSortingRepository<Nave, Integer> {
+	
+}

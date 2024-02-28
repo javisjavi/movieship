@@ -1,0 +1,96 @@
+package com.onemore.msnaves.naves.service;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.onemore.msnaves.db.naves.Nave;
+import com.onemore.msnaves.db.naves.NavesRepository;
+import com.onemore.msnaves.db.naves.NavesRepositoryPaginable;
+import com.onemore.msnaves.generic.GenericService;
+import com.onemore.msnaves.mensajes.service.MensajesService;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+
+@Service
+public class NavesService extends GenericService<Nave, Integer> implements INavesService {
+	
+	private final NavesRepository navesRepository;
+	private final NavesRepositoryPaginable navesRepositoryPaginable;
+	private final MensajesService mensajesService;
+
+	public NavesService(NavesRepository navesRepository, NavesRepositoryPaginable navesRepositoryPaginable, MensajesService mensajesService) {
+    	super(navesRepository, navesRepositoryPaginable);
+        this.navesRepository = navesRepository;
+        this.navesRepositoryPaginable = navesRepositoryPaginable;
+        this.mensajesService = mensajesService;
+	}
+    
+	// Métodos existentes
+	
+	@Override
+	public List<Nave> getAll() {
+		mensajesService.send("[" + LocalDate.now() + "] - " + "Se ha llamado a getAll");
+        //return repository.findAll();
+		return navesRepository.findAllByOrderByIdAsc();
+    }
+	
+//	@Override
+//	public Page<Nave> getAllPaginated(Pageable pageable) {
+//	    return navesRepositoryPaginable.findAll(pageable);
+//	}
+	
+	@PersistenceContext
+    private EntityManager entityManager;
+
+    public List<Nave> getAllPaginated(Pageable pageable) {
+    	Query nativeQuery = entityManager.createNativeQuery("SELECT * FROM naves LIMIT :limit OFFSET :offset", Nave.class);
+        nativeQuery.setParameter("limit", pageable.getPageSize());
+        nativeQuery.setParameter("offset", pageable.getOffset());
+        List<Nave> naves = nativeQuery.getResultList();
+        return naves;
+    }
+
+	@Override
+    public Optional<Nave> getById(Integer id) {
+		mensajesService.send("[" + LocalDate.now() + "] - " + "Se ha llamado a getById");
+        return repository.findById(id);
+    }
+
+	@Override
+    public Nave create(Nave entity) {
+		mensajesService.send("[" + LocalDate.now() + "] - " + "Se ha llamado a create");
+        return repository.save(entity);
+    }
+    
+    @Override
+    public Nave update(Integer id, Nave entity) {
+    	mensajesService.send("[" + LocalDate.now() + "] - " + "Se ha llamado a update");
+		Nave existingEntity = navesRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(entity.getClass().getSimpleName() + " not found with id: " + id));
+        
+		existingEntity.setNombre(entity.getNombre());
+
+		return navesRepository.save(existingEntity);
+	}
+    
+    @Override
+    public void delete(Integer id) {
+    	mensajesService.send("[" + LocalDate.now() + "] - " + "Se ha llamado a delete");
+    	mensajesService.sendEliminacionNave(id.toString());
+    	Nave entityToDelete = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Entity not found with id: " + id));
+        repository.delete(entityToDelete);
+    }
+    
+    public List<Nave> findByNombre(String nombre) {
+    	mensajesService.send("[" + LocalDate.now() + "] - " + "Se ha llamado a findByNombre");
+    	return navesRepository.findByNombre(nombre);
+	}
+    
+}
